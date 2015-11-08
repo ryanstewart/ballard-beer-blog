@@ -1,0 +1,219 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+
+
+// Our variables
+$headline-font-family: "adelle";
+$base-font-family: "source-sans-pro", Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$light-brown: #607DA8; //#d9b589;
+$dark-brown: #22395C; //#8c5839;
+
+// Complementary Color Scheme
+$dark-accent: #22395C;
+$light-accent: #607DA8;
+$base-color: #A89060;
+$light-base: #F5F2ED;
+$dark-base: #5C4B2B;
+
+$spacing-unit:     30px;
+
+$text-color:       $dark-base;
+$background-color: $light-base; //#FFE89B;
+$link-color: $light-accent;
+
+
+$grey-color:       #C1DAFF;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+h5 {
+    color: $dark-accent;
+    font-family: $headline-font-family;
+}
+
+.post {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.title {
+    color: $dark-accent;
+    font-family: $headline-font-family;
+    font-weight: 900;
+}
+
+.blog-header {
+    font-family: $headline-font-family;
+    font-weight: 800;
+}
+
+.blog-meta {
+    background-color: $dark-accent;
+    color: white;
+    font-family: "adelle";
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.blog-meta-date {
+	font-weight: 200;
+}
+
+.center {
+    text-align: center;
+}
+
+.blog-meta-category {
+    background-color: lighten($dark-accent,40%);
+    color: white;
+    font-family: "adelle";
+    margin-top: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.header-image {
+    min-height: 300px;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.header-image > span {
+    color: white;
+    position: absolute;
+    bottom: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: rgba(0,0,0,.6);
+}
+
+.header {
+    background-image: url("../images/header.jpg");
+    background-size: cover;
+    height: 500px;
+    color: white;
+    font-family: $headline-font-family;
+    font-weight: bold;
+    text-align: center;
+    line-height: 500px;
+    font-size: 20px;
+}
+
+.menu {
+    position: absolute;
+    top: 0px;
+    line-height: 50px;
+    width: 100%;
+    text-align: center;
+//    font-weight: 200;
+    text-transform: uppercase;
+    li {
+        display: inline;
+        list-style-type: none;
+        padding-right: 50px;
+    }
+}
+
+.breweries-content {
+    background-color: $base-color;
+    .title {
+        color: $dark-accent;
+    }
+}
+
+.breweries {
+    width: 100%;
+    text-align: center;
+}
+
+.breweries > div {
+    display: inline-block;
+}
+
+.hales {
+    background-image: url(../images/hales-logo-250x250.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+}
+
+.reubens {
+    background-image: url(../images/reubens-logo-250x250.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;    
+}
+
+.brewery {
+    background-color: $base-color;
+    font-family: $headline-font-family;
+    font-weight: 800;
+    text-align: center;
+    color: $light-accent;
+    height: 200px;
+}
+
+.hales {
+//    background-image: url(../images/hales-ales-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.about {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.crawl-info > p {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.crawl-info > ul {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#map-canvas {
+    min-height: 400px;
+}
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "base",
+        "layout",
+        "grid"
+;

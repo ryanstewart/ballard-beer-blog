@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+      <div class="grid">
+          {% include header.html %}
+          <div class="grid__col grid__col--12-of-12">
+              <h1 class="title center">{{ page.title }}</h1>
+          </div>
+        <div class="grid__col grid__col--1-of-12">
+        </div>
+        <div class="grid__col grid__col--1-of-12">
+            <div class="blog-meta center">
+                {{ page.date | date: "%b %-d" }}
+            </div>
+
+        </div>
+        <div class="grid__col grid__col--9-of-12">
+            <h2 class="blog-header"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+            <div>
+                {{ content }}
+            </div>
+        </div>
+        <div class="grid__col grid__col--1-of-12">
+        </div>
+      </div>
+
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

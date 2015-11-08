@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Ballard Brewery Crawls</title>
+        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="initial-scale=1">
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgaT5-v3Hjy6BDczQe3_LAw4g7Y9DaaaM&sensor=false">
+        </script>
+        <script src="{{ "/js/beer-crawl.js" | prepend: site.baseurl }}"></script>
+          <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+        <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+        <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+    </head>
+  <body>
+      <div class="grid">
+          {% include header.html %}
+          <div class="grid__col grid__col--12-of-12">
+              <h1 class="title center">{{ page.title }}</h1>
+          </div>
+          <div class="grid__col grid__col--12-of-12 crawl-info">
+                    <p>With 10 breweries in a square mile, you don't have to walk far in Ballard to find great beer. As a result it's become fairly common for groups to organize a Ballard Beer Crawl. The best times for a beer crawl tend to be the weekend afternoons because a) all the breweries are open and b) there are enough hours in the day to make the trek.</p>
+                    <p>Below we've mapped out the breweries in Ballard to help you plan your walk. And since 10 breweries is a lot to cover, we've also divided up the crawl into sections in case you want to spread out your crawl over multiple trips. Or maybe you can just do them all! Click on the links below to adjust the map to show only the breweries on that specific crawl.</p>
+                    <ul>
+                        <li id="fullCrawl"><a href="#">Full Crawl</a> - Every brewery in Ballard. Bring a DD with you on this one.</li>
+                        <li id="frelardCrawl"><a href="#">Frelard Crawl</a> - Covers all the breweries in the gray area between Fremont and Ballard.</li>
+                        <li id="industrialCrawl"><a href="#">Industrial Crawl</a> - Take a beer walk through Industrial Ballard. Check out machine shops, fishing equipment companies, and soak up a little bit of the grit that makes Ballard awesome while you drink.</li>
+                        <li id="oldBallardCrawl"><a href="#">Old Ballard Crawl</a> - Runs you through the older part of Ballard including downtown. Drink some beer, do some shopping, and hit some bars or live music when you're done.</li>
+                    </ul>
+            </div>
+            <div class="grid__col grid__col--12-of-12" id="map-canvas"/>
+          
+      </div>
+    {% include footer.html %}
+
+  </body>
+
+</html>
+
+

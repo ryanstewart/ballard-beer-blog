@@ -1,0 +1,15 @@
+{
+    "sass.enabled": false,
+    "path": {
+        "css/main.scss": {
+            "sass.enabled": true,
+            "sass.options": {
+                "outputDir": "css/",
+                "includePaths": [],
+                "sourceComments": true,
+                "outputStyle": "nested"
+            },
+            "livedev.multibrowser": false
+        }
+    }
+}

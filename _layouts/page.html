@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+      <div class="grid">
+          {% include header.html %}
+          <div class="grid__col grid__col--12-of-12">
+              <h1 class="title center">{{ page.title }}</h1>
+          </div>
+          {{ content }}
+      </div>
+
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

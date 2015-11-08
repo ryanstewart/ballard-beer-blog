@@ -1,0 +1,28 @@
+---
+layout: page
+---
+    {% for post in site.posts %}
+        <div class="grid__col grid__col--1-of-12">
+        </div>
+        <div class="grid__col grid__col--1-of-12">
+            <div class="blog-meta center">
+                Posted on<br />
+                <div class="blog-meta-date">
+                {{ post.date | date: "%b %-d" }}
+                </div>
+            </div>
+            {% for category in post.categories %}
+            <div class="blog-meta-category center">{{ category }}</div>
+            {% endfor %}
+<!--            <div>{{ post.categories | array_to_sentence_string }}</div>-->
+            
+        </div>
+        <div class="grid__col grid__col--9-of-12">
+            <h2 class="blog-header"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+            <div>
+                {{ post.content }}
+            </div>
+        </div>
+        <div class="grid__col grid__col--1-of-12">
+        </div>
+    {% endfor %}
