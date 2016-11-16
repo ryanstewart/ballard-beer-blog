@@ -9,7 +9,8 @@
                 "sourceComments": true,
                 "outputStyle": "nested"
             },
-            "livedev.multibrowser": false
+            "livedev.multibrowser": false,
+            "brackets-git.gitPath": "git"
         }
     }
 }

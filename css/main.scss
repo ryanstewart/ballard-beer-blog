@@ -12,15 +12,21 @@ $base-font-size:   16px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$light-brown: #607DA8; //#d9b589;
-$dark-brown: #22395C; //#8c5839;
+//$light-brown: #607DA8; //#d9b589;
+//$dark-brown: #22395C; //#8c5839;
 
 // Complementary Color Scheme
-$dark-accent: #22395C;
-$light-accent: #607DA8;
-$base-color: #A89060;
-$light-base: #F5F2ED;
-$dark-base: #5C4B2B;
+//$dark-accent: #22395C;
+//$light-accent: #607DA8;
+//$base-color: #A89060;
+//$light-base: #F5F2ED;
+//$dark-base: #5C4B2B;
+$dark-accent: #1e392a;
+$accent-transparent: rgba(30, 57, 42, 0.45);
+$light-accent: #3cc47c;
+$base-color: #E9C893;
+$light-base: #FFFFFF;
+$dark-base: #828081;
 
 $spacing-unit:     30px;
 
@@ -29,7 +35,7 @@ $background-color: $light-base; //#FFE89B;
 $link-color: $light-accent;
 
 
-$grey-color:       #C1DAFF;
+$grey-color:       #E9C893;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
@@ -38,7 +44,10 @@ $content-width:    800px;
 
 $on-palm:          600px;
 $on-laptop:        800px;
-
+$breakpoint1:      700px;
+$breakpoint-menu-break: 840px;
+$breakpoint-menu-mobile: 455px;
+$breakpoint-social-buttons: 545px;
 
 
 // Using media queries with like this:
@@ -49,7 +58,7 @@ $on-laptop:        800px;
 //     }
 // }
 @mixin media-query($device) {
-    @media screen and (max-width: $device) {
+    @media screen and (max-width: #{$device}) {
         @content;
     }
 }
@@ -79,9 +88,11 @@ h5 {
     background-color: $dark-accent;
     color: white;
     font-family: "adelle";
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-top: 5px;
 }
+
 
 .blog-meta-date {
 	font-weight: 200;
@@ -92,7 +103,7 @@ h5 {
 }
 
 .blog-meta-category {
-    background-color: lighten($dark-accent,40%);
+    background-color: $base-color;
     color: white;
     font-family: "adelle";
     margin-top: 5px;
@@ -117,8 +128,14 @@ h5 {
 }
 
 .header {
-    background-image: url("../images/header.jpg");
+    background:
+        linear-gradient(
+            $accent-transparent,
+            $accent-transparent
+        ),
+        url("../images/header.jpg");
     background-size: cover;
+    background-attachment: fixed;
     height: 500px;
     color: white;
     font-family: $headline-font-family;
@@ -131,16 +148,54 @@ h5 {
 .menu {
     position: absolute;
     top: 0px;
-    line-height: 50px;
+    line-height: 20px;
+    padding-top: 12px;
     width: 100%;
     text-align: center;
-//    font-weight: 200;
+    background-color: $light-base;
     text-transform: uppercase;
     li {
         display: inline;
         list-style-type: none;
         padding-right: 50px;
     }
+    .menu-icon {
+        display: none;
+    }
+}
+
+@include media-query($breakpoint-menu-break) {
+    .menu {
+        line-height: 30px;
+    }
+    .blog-meta-date-box {
+        opacity: 0;
+    }
+}
+
+@include media-query($breakpoint-menu-mobile) {
+    .menu .menu-icon {
+        display: inline;
+        cursor: pointer;
+    }
+    .menu li:not(.responsive) {
+        display: none;
+        margin-left: 62px;
+    }
+    .menu li {
+        padding-right: 0px;
+    }
+    .menu ul {
+        text-align: left;
+        margin-left: 0px;
+    }
+    .post {
+        margin-left: 5px;
+    }
+}
+
+.main-title {
+    font-weight: 600;
 }
 
 .breweries-content {
@@ -159,23 +214,6 @@ h5 {
     display: inline-block;
 }
 
-.hales {
-    background-image: url(../images/hales-logo-250x250.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    border-radius: 50%;
-    height: 5rem;
-    width: 5rem;
-}
-
-.reubens {
-    background-image: url(../images/reubens-logo-250x250.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    border-radius: 50%;
-    height: 5rem;
-    width: 5rem;    
-}
 
 .brewery {
     background-color: $base-color;
@@ -184,12 +222,6 @@ h5 {
     text-align: center;
     color: $light-accent;
     height: 200px;
-}
-
-.hales {
-//    background-image: url(../images/hales-ales-background.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .about {
@@ -207,9 +239,28 @@ h5 {
     padding-right: 25px;
 }
 
-#map-canvas {
-    min-height: 400px;
+.fa {
+    padding-right: 1em;
+    padding-left: 1em;
+    color: $light-accent;
 }
+
+
+@include media-query($breakpoint-social-buttons) {
+    .follow .fa {
+        padding-right: .5em;
+        padding-left: .5em;
+    }   
+}
+
+.fa:hover {
+    color: $dark-accent;
+}
+
+.follow {
+    padding-bottom: 20px;
+}
+
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
